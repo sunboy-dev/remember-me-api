@@ -6,12 +6,11 @@ export class CreateNoteDto {
   schedule: CreateNoteScheduleDto;
 }
 
-class CreateNoteScheduleDto {
+export class CreateNoteScheduleDto {
   remindAt: Date;
   frequency: Frequency;
   dayOfWeek?: string;
   dayOfMonth?: string;
   startDate: Date;
   endDate?: Date;
-
 }

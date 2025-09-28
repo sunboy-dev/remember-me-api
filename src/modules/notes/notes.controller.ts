@@ -4,6 +4,7 @@ import { CreateNoteDto } from './dto/create-note.dto';
 import { UpdateNoteDto } from './dto/update-note.dto';
 import { ApiBody, ApiResponse, ApiSchema } from '@nestjs/swagger';
 import { CreateNoteResponseDto } from './dto/create-note-response.dto';
+import { BaseResponse } from 'src/common/dto/base-response.dto';
 
 @Controller('notes')
 export class NotesController {
@@ -42,7 +43,6 @@ export class NotesController {
     }
   })
   @ApiResponse({ status: 201, description: 'The note has been successfully created.', type: CreateNoteResponseDto, example: { id: 1, title: 'Meeting Reminder' } })
-
   create(@Body() request: CreateNoteDto) {
     return this.notesService.create(request);
   }
