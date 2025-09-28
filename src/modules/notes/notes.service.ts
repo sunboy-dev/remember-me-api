@@ -27,11 +27,11 @@ export class NotesService {
   }
 
   findAll() {
-    return `This action returns all notes`;
+    return this.prisma.note.findMany({ include: { schedules: true } });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} note`;
+  findOne(id: string) {
+    return this.prisma.note.findUnique({ where: { id }, include: { schedules: true } });
   }
 
   update(id: number, updateNoteDto: UpdateNoteDto) {

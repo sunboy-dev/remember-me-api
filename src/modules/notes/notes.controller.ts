@@ -4,7 +4,6 @@ import { CreateNoteDto } from './dto/create-note.dto';
 import { UpdateNoteDto } from './dto/update-note.dto';
 import { ApiBody, ApiResponse, ApiSchema } from '@nestjs/swagger';
 import { CreateNoteResponseDto } from './dto/create-note-response.dto';
-import { BaseResponse } from 'src/common/dto/base-response.dto';
 
 @Controller('notes')
 export class NotesController {
@@ -54,7 +53,7 @@ export class NotesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.notesService.findOne(+id);
+    return this.notesService.findOne(id);
   }
 
   @Patch(':id')
