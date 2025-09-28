@@ -1,0 +1,18 @@
+version: "3.4"
+
+volumes:
+  jodpap_db:
+
+services:
+  postgres_jodpap:
+    image: postgres:latest
+    container_name: postgres-container-jodpap
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: remember-me-dev
+    volumes:
+      - jodpap_db:/var/lib/postgresql/data
